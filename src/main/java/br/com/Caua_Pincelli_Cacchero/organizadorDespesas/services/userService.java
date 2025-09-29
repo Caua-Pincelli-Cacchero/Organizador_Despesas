@@ -22,4 +22,24 @@ public class userService {
 
         return repository.save(user);
     }
+
+    public User findById(UUID id) {
+        return repository.findById(id).get();
+    }
+
+    public User update(UUID id, User user) {
+
+        User existingUser  = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        existingUser .setNome(user.getNome());
+        existingUser .setEmail(user.getEmail());
+        existingUser .setSenha(user.getSenha());
+        existingUser .setLimiteGastos(user.getLimiteGastos());
+
+        return repository.save(existingUser );
+    }
+
+    public void delete(UUID id) {
+        repository.deleteById(id);
+    }
 }
