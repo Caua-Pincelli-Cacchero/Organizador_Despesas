@@ -1,11 +1,10 @@
 package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,9 +13,21 @@ import java.util.UUID;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
+
+    @Column(nullable = false)
     String nome;
+
+    @Column(nullable = false, unique = true)
     String email;
+
+    @Column(nullable = false)
     String senha;
+
+    @Column(nullable = false)
     int limiteGastos;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Despesas> despesas;
 }
