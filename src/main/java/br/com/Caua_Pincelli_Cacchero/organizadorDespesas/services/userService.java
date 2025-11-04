@@ -19,6 +19,7 @@ public class userService {
         user.setEmail(user.getEmail());
         user.setSenha(user.getSenha());
         user.setLimiteGastos(user.getLimiteGastos());
+        user.setDespesas(user.getDespesas());
 
         return repository.save(user);
     }

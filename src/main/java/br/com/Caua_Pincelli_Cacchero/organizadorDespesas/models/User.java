@@ -1,6 +1,7 @@
 package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,7 +14,6 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
     @Column(nullable = false)

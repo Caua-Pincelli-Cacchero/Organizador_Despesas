@@ -20,6 +20,7 @@ public class despesaService {
         despesas.setDescricao(despesas.getDescricao());
         despesas.setValor(despesas.getValor());
         despesas.setTipoDespesa(despesas.getTipoDespesa());
+        despesas.setUsuario(despesas.getUsuario());
 
         return repository.save(despesas);
     }
