@@ -2,6 +2,7 @@ package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,6 +29,7 @@ public class User {
     @Column(nullable = false)
     int limiteGastos;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Despesas> despesas;
 }

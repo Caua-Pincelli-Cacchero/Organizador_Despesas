@@ -5,6 +5,7 @@ import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,6 +23,11 @@ public class userController {
     @GetMapping("/{id}")
     public User findById(@PathVariable UUID id) {
         return service.findById(id);
+    }
+
+    @GetMapping
+    public List<User> findAll() {
+        return service.findAll();
     }
 
     @PutMapping("/{id}")

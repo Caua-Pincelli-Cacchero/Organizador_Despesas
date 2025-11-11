@@ -1,7 +1,9 @@
 package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services;
 
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.Despesas;
+import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.User;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.despesasRepository;
+import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class despesaService {
     private despesasRepository repository;
 
     public Despesas createDespesa(Despesas despesas) {
+
 
         despesas.setId(UUID.randomUUID());
         despesas.setDescricao(despesas.getDescricao());

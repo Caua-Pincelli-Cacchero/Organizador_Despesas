@@ -5,6 +5,8 @@ import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.userReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -26,6 +28,11 @@ public class userService {
 
     public User findById(UUID id) {
         return repository.findById(id).get();
+    }
+
+    public List<User> findAll() {
+        List<User> persons = new ArrayList<User>();
+        return (List<User>) repository.findAll();
     }
 
     public User update(UUID id, User user) {
