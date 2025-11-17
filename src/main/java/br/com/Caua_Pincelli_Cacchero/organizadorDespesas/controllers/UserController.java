@@ -1,7 +1,7 @@
 package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.controllers;
 
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.User;
-import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services.userService;
+import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +10,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
-public class userController {
+public class UserController {
 
     @Autowired
-    private userService service;
+    private UserService service;
 
     @PostMapping
     public User createUser(@RequestBody User user) {

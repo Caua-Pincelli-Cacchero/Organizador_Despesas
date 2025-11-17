@@ -2,7 +2,7 @@ package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models;
 
 
 public enum CategoriaDespesa {
-    ALIMENTAÇÃO,
+    ALIMENTACAO,
     INVESTIMENTO,
     LAZER,
     SAUDE,

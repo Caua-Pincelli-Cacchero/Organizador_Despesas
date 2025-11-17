@@ -7,4 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface despesasRepository extends CrudRepository<Despesas, UUID> {}
+public interface DespesasRepository extends CrudRepository<Despesas, UUID> {}

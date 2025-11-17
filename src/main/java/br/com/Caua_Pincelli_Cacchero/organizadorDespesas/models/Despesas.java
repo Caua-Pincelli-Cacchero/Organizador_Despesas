@@ -1,11 +1,9 @@
 package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -14,14 +12,13 @@ import java.util.UUID;
 public class Despesas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "descricao", nullable = false, length = 100)
     String descricao;
 
     @Column(nullable = false)
-    BigDecimal valor;
+    int valor;
 
     @Enumerated(EnumType.STRING)
     CategoriaDespesa tipoDespesa;
