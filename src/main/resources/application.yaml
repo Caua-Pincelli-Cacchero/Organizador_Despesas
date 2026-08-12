@@ -1,0 +1,10 @@
+spring:
+  aplication:
+    name: organizadorDespesas
+  datasourceurl: jdbc:mysql://localhost:3306/organizador_despesas?createDatabaseIfNotExists=true
+  username: ${DATABASE_USERNAME}
+  password: ${DATABASE_PASSWORD}
+
+  jpa:
+    hibernate:
+    ddl-auto: update
