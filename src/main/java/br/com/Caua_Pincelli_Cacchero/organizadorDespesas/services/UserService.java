@@ -2,6 +2,7 @@ package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services;
 
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.User;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository repository;
+
+    private final UserRepository repository;
 
     public User create(User user) {
 

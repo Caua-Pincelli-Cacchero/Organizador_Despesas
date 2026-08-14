@@ -2,20 +2,23 @@ package br.com.Caua_Pincelli_Cacchero.organizadorDespesas.controllers;
 
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.User;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.services.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService service;
+    private final UserService service;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User user) {
         return service.create(user);
     }
@@ -36,6 +39,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable UUID id) {
         service.delete(id);
     }

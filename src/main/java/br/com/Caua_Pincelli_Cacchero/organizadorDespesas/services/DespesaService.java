@@ -5,26 +5,25 @@ import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.Despesas;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.models.User;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.DespesasRepository;
 import br.com.Caua_Pincelli_Cacchero.organizadorDespesas.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class DespesaService {
 
-    @Autowired
-    private DespesasRepository repositoryDespesas;
-
-    @Autowired
-    private UserRepository repositoryUser;
+    private final DespesasRepository repositoryDespesas;
+    private final UserRepository repositoryUser;
 
     public Despesas createDespesa(Despesas despesas) {
 
             User user = repositoryUser.findById(despesas.getUsuario().getId())
                     .orElseThrow(() -> new UserAndExpenseNotFoundException("Usuário não encontrado!"));
-
-
 
             despesas.setId(UUID.randomUUID());
             despesas.setUsuario(user);
@@ -36,6 +35,10 @@ public class DespesaService {
     public Despesas findById(UUID id) {
 
         return repositoryDespesas.findById(id).get();
+    }
+
+    public List<Despesas> findAll(){
+        return repositoryDespesas.findAll();
     }
 
     public Despesas updateDespesa(UUID id, Despesas despesas) {
